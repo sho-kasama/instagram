@@ -1,0 +1,15 @@
+current directory: /Users/kasamashou/instagram/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+/Users/kasamashou/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20190430-52745-1fewlgk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kasamashou/instagram/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/kasamashou/instagram/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/kasamashou/instagram/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20190430-52745-1ppvd29/bootsnap
