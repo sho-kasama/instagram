@@ -1,1 +1,4 @@
 @import "bootstrap";
+
+// 下記のコードを追加することで layouts/navbar.scssファイルのコードを読み込めるようになる
+@import "layouts/navbar";
