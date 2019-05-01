@@ -10,12 +10,26 @@
   </head>
 
   <body>
-    <!-- 部分テンプレートを使って共通化する　-->
-    <%= render 'partial/navbar' %>
+    <div id=#wrapper>
+      <!-- ログインしていないユーザーにはnavbarを表示しないように設定する　-->
+      <%= render 'partial/navbar' if current_user %>
 
+  　  <!-- フラッシュメッセージ --> 
+      <% if flash[:notice] %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
+      <!-- フラッシュメッセージここまで -->
 
-
-
-    <%= yield %>
+      <!-- prtial/footerを追加する -->
+      <%= render 'partial/footer' %>
+    </div>
   </body>
 </html>

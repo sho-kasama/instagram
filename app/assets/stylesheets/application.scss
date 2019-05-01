@@ -2,3 +2,7 @@
 
 // 下記のコードを追加することで layouts/navbar.scssファイルのコードを読み込めるようになる
 @import "layouts/navbar";
+
+// scssファイルをインポートする
+@import "common";
+@import "users/devise";
