@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     controllers: { registrations: 'registrations'}
 
   # pagesコントローラーのhomeアクションのルーティングをトップページのルーティングとして設定する
-  root 'pages#home'
+  root 'posts#index'
   
   
   # ここにusersコントローラーのshowアクションのルーティングを追加する
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   # postsコントローラーのnewアクション,createアクション,photosコントローラーのcreate
-  resources :posts, only: %i(new create)do 
+  resources :posts, only: %i(new create index) do 
     resources :photos, only: %i(create)
   end
 
