@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # postsコントローラーのnewアクション,createアクション,photosコントローラーのcreate
   resources :posts, only: %i(new create index show destroy) do 
     resources :photos, only: %i(create)
+
+    # ルーティングをネストにすることで親子関係を表すことができる
+    resources :likes, only: %i(create destory)
   end
 
 end
