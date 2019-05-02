@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   # has_many は他のモデルとの間に「1対多」の繋がりがあることを示します
   has_many :likes
-  
   has_many :posts, dependent: :destroy
+  has_many :comments
 
 
 
