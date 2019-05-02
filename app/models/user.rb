@@ -1,13 +1,4 @@
 class User < ApplicationRecord
-
-  # has_manyは他のモデルとの間に「1対多」の繋がりがあることを示します。「1側」にhas_manyを使用します
-  # has_manyの反対側はbelongs_toが使われます
-  # dependent: :destoryをつけることでオブジェクトが削除されるときに関連付けられたオブジェクトの
-  # destoryメソッドが実行される
-  has_many :posts, dependent: :destroy
-
-
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
