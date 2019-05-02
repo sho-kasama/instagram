@@ -13,11 +13,12 @@
 
           <!-- 投稿画面の各投稿に削除リンクを追加する    -->
           <% if post.user_id == current_user.id %>
-          <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+             <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
               <div class="delete-post-icon">
               </div>
+             <% end %>
           <% end %>
-          <% end %>
+
         </div>
 
         <!-- 
@@ -32,10 +33,22 @@
 
         <div class="card-body">
           <div class="row parts">
-            <%= link_to "", "#", class: "love" %>
+
+            <div id="like-icon-post-<%= post.id.to_s %>">
+              <!--  下記のコードはlike_byの引数にcurrent_userを渡すことで投稿にサインインしているユーザーのいいねがあるかどうかを判断します     -->
+              <% if post.liked_by(current_user).present? %>
+                <%= link_to "いいねを取り消す", post_likes_path(post.id, post.liked_by(current_user)),method: :DELETE, remote: true, class: "loved hide-text"%>
+              <% else %>
+                <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"%>
+              <% end %>
+            </div>
             <%= link_to "", "#", class: "comment" %>
           </div>
-          <div><strong>「いいね！」10件</strong></div>
+
+          <div id="like-text-post-<%= post.id.to_s %>">
+            <%= render "like_text", { likes: post.likes }%>
+          </div>
+
           <div>
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>

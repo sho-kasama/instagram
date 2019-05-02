@@ -92,3 +92,17 @@
     font-size: 20px;
   }
   
+  .loved {
+    background-image: image-url("parts7");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+  }
+  
+  .hide-text {
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+  }
