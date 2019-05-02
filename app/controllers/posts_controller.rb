@@ -27,6 +27,16 @@ class PostsController < ApplicationController
       end
     end
 
+    # 下記のコードでやっていることは受け取ったHTTPリクエストからidを判別し
+    # 指定のレコードに1つを@postに代入します
+    # @post に投稿の情報を入れることで, @postを使ってビューに投稿のキャプションを表示させることができます。
+    def show
+      @post = Post.find_by(id: params[:id]) 
+    end
+
+
+
+
     private
       def post_params
         params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)

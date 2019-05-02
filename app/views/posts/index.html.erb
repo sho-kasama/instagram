@@ -12,7 +12,15 @@
           <% end %>
         </div>
 
-        <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+        <!-- 
+        現状、投稿画面を押しても投稿詳細ページに還移されません。投稿の画像をクリックすると、
+        投稿詳細ページに還移するように実装します。
+        画像や要素をリンクにしたい場合、link_toでブロック構文を利用します。
+        postという変数を引数に渡します
+        -->
+        <%= link_to(post_path(post)) do %>
+           <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+        <% end %>
 
         <div class="card-body">
           <div class="row parts">
@@ -23,7 +31,8 @@
           <div>
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>
-            <%= link_to time_ago_in_words(post.created_at).upcase + "前", "#", class: "post-time no-text-decoration" %>
+            <!-- 投稿日時をクリックしても投稿詳細ページに移動するように実装する  -->
+            <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
             <hr>
             <div class="row parts">
               <form action="#" class="w-100">

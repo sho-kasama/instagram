@@ -1,0 +1,37 @@
+<div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap">
+  <div class="row post-wrap">
+    <div class="col-md-8">
+      <div class="card-left">
+        <%= image_tag @post.photos.first.image.url(:medium), class: "card-img-top" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-right">
+        <div class="card-right-comment">
+          <div class="card-right-name">
+            <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
+              <%= image_tag avatar_url(@post.user), class: "post-profile-icon" %>
+            <% end %>
+            <%= link_to user_path(@post.user), class: "black-color no-text-decoration post-user-name",
+              title: @post.user.name do %>
+              <strong><%= @post.user.name %></strong>
+            <% end %>
+          </div>
+          <div class="m-2">
+            <strong>
+              <%= @post.caption %>
+            </strong>
+          </div>
+          <div class="comment-post-id">
+            <div class="m-2">
+            </div>
+          </div>
+        </div>
+        <div class="row parts">
+        </div>
+        <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
