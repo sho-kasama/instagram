@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
 
     # dependent: :detoryをつけることで、投稿が削除されたらその投稿に紐付くコメントも削除される
-    has_many :comments, dependent: :destory
+    has_many :comments, dependent: :destroy
 
     # 親子関係のある関連モデル で、親から子を作成したり保存するときに使える
     accepts_nested_attributes_for :photos

@@ -15,7 +15,13 @@ Rails.application.routes.draw do
     resources :photos, only: %i(create)
 
     # ルーティングをネストにすることで親子関係を表すことができる
-    resources :likes, only: %i(create destory)
+    resources :likes, only: %i(create destroy)
+
+    # コメントの情報を削除と作成するルーティングを追加する
+    resources :comments, only: %i(create destroy)
+
   end
 
 end
+
+# photoコントローラーが存在しない。ここで調べてみる

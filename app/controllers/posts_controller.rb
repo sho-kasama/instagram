@@ -4,10 +4,7 @@ class PostsController < ApplicationController
     # ユーザーがサインインしてない状態だと投稿ページで投稿しても誰が投稿したかわからない。
     # また投稿された画像はサインインしたユーザーのみ見えるようにする
     before_action :authenticate_user!
-
     before_action :set_post, only: %i(show destory)
-
-
 
     def new
       @post = Post.new
@@ -54,8 +51,8 @@ class PostsController < ApplicationController
     end
 
 
-
     private
+
       def post_params
         params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
       end

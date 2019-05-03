@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="profile-form-wrap">
+        <!--  form_withのscopeを調べる　 -->
          <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
           <div class="form-group">
             <%= f.label :name, "名前" %>

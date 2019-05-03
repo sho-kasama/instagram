@@ -11,3 +11,5 @@ class ApplicationController < ActionController::Base
       end
       
 end
+
+# application コントローラーは全てのコントローラーの読み込まれる前に読み込まれるファイル

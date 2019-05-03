@@ -65,3 +65,20 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+
+# 追加するgem trunkベースにする
+# Facebook認証
+#gem 'omniauth-facebook', '~>4.0'
+# Facebook Util
+#gem 'koala'
+#gem 'config'
+#gem 'gretel'
+#gem 'nested_form'
+#gem 'unicorn'
+#gem 'rambulance'
+#gem 'fog'
+#gem "delayed_job"
+#gem "delayed_job_active_record"
+
+# メール機能
+# gem 'aws-sdk-rails', '~> 1.0'
