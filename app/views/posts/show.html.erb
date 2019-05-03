@@ -33,6 +33,10 @@
           </div>
           <div class="comment-post-id">
             <div class="m-2">
+            <!-- 投稿詳細ページでもコメントできるように実装する -->
+            <div id="comment-post-<%= @post.id.to_s %>">
+              <%= render 'comment_list', post: @post %>
+            </div>
             </div>
           </div>
         </div>
@@ -52,6 +56,14 @@
 
         <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
         <hr>
+        <!-- 投稿詳細ページでもコメントできるように実装する -->
+        <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>">
+          <%= form_with model: [@post, Comment.new], class: "w-100" do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :post_id, vakue: @post.id %>
+            <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
+          <% end %> 
+        </div>
       </div>
     </div>
   </div>

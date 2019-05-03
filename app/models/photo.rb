@@ -4,5 +4,6 @@ class Photo < ApplicationRecord
     validates :image, presence: true
   
     # ここを追加
+    # mount_uploderの意味を調べる
     mount_uploader :image, ImageUploader
   end
