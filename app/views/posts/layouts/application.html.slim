@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title
+      | Instagram
+    = csrf_meta_tags
+    = csp_meta_tag
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    ##wrapper
+      = render 'partial/navbar' if current_user
+      |  　 
+      - if flash[:notice]
+        .alert.alert-info
+          = flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash[:alert]
+      .container
+        = yield
+      = render 'partial/footer'

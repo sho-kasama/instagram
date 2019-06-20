@@ -1,0 +1,11 @@
+nav.navbar.navbar-expand-lg.navbar-light
+  .container
+    = link_to "", root_path, class: "navbar__brand navbar__mainLogo"
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.ml-md-auto.align-items-center
+        li
+          = link_to "投稿", new_post_path, class: "btn btn-primary"
+        li
+          = link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon"
