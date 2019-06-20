@@ -1,0 +1,27 @@
+.profile-wrap
+  .row
+    .col-md-4.text-center
+      = image_tag avatar_url(@user), class: "round-img"
+    .col-md-8
+      .row
+        h1
+          = @user.name
+        - if @user == current_user
+          = link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn"
+          button.setting[type="button" data-toggle="modal" data-target="#exampleModal"]
+        #exampleModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"]
+          .modal-dialog[role="document"]
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title
+                  | 設定
+                button.close[type="button" data-dismiss="modal" aria-label="Close"]
+                  span[aria-hidden="true"]
+                    | ×
+              .list-group.text-center
+                = link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action"
+                = link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal"
+      - if @user == current_user
+        .row
+          p
+            = @user.email
